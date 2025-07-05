@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body.pagina-index {
+    background: #f3f6fd;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    color: #111;
+}
+
+.volver-inicio {
+    display: block;
+    margin: 32px 0 0 32px;
+    color: #222;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.login-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 32px #0001;
+    max-width: 420px;
+    margin: 48px auto 0 auto;
+    padding: 38px 32px 24px 32px;
+    text-align: left;
+}
+
+.login-card h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+
+.subtitulo {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.login-form label {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+    color: #222;
+}
+
+.input-icon {
+    display: flex;
+    align-items: center;
+    background: #f7f8fa;
+    border: 1.5px solid #d1d5db;
+    border-radius: 7px;
+    margin-bottom: 18px;
+    padding: 0 10px;
+}
+
+.input-icon .icon {
+    color: #bbb;
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
+.input-icon input {
+    border: none;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 1em;
+    color: #222;
+    width: 100%;
+    outline: none;
+}
+
+.input-icon input:focus {
+    background: #f0f0f0;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 0.97em;
+}
+
+.opciones label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    color: #222;
+}
+
+.olvide {
+    color: #222;
+    text-decoration: none;
+    font-size: 0.97em;
+    transition: color 0.2s;
+}
+
+.olvide:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 13px 0;
+    border-radius: 7px;
+    border: none;
+    background: #111;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+}
+
+.login-form button:hover {
+    background: #333;
+}
+
+.divider {
+    text-align: center;
+    color: #bbb;
+    margin: 18px 0 10px 0;
+    font-size: 1.1em;
+}
+
+.acciones {
+    text-align: center;
+    color: #222;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.acciones a {
+    color: #111;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.acciones a:hover {
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .login-card {
+        max-width: 95vw;
+        padding: 18px 6vw;
+    }
+    .volver-inicio {
+        margin-left: 8vw;
+    }
+}
