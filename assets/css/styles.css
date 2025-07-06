@@ -1,6 +1,77 @@
-body{
-    background-color: #ffffff;
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primario: #222;
+    --primarioOscuro: #f3f6fd;
+    --secundario: #FFCE00;
+    --secundarioOscuro: rgb(233, 187, 2);
+    --blanco: #f3f6fd;
+    --font-family: 'Roboto', Arial, sans-serif;
+
+}
+
+body {
+    background-color: #f3f6fd;
+    font-family: var(--font-family);
     margin: 0;
     padding: 20px;
+}
+a{
+    text-decoration: none;
+    color: var(--primario);
+}
+.navegacion {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    gap: 2rem;
+    margin: auto; 
+}
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal);
+    color: var(--primario);
+    font-size: 3rem;
+}
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: var(--primario);
+}
+/*Divs contenedores*/
+/** Grid **/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    margin-top: 2rem;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.contenedores {
+    background-color: var(--blanco);
+    box-shadow: #222 0px 0px 10px;
+    padding: 1rem;
+}
+.Guia{
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+/*Footer*/
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 1.5rem;
 }
