@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil</title>
     <link rel="stylesheet" href="../assets/css/miPerfil.css">
+    <link rel="stylesheet" href="../assets/CSS/header.css">
 </head>
 
 <body>
-    <div class="sidebar">
-        <small><Strong>USUARIO</Strong></small>
-        <h2>RafaSola05</h2>
-        <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
-        <a href="../pags/contacto.html">Contacto</a>
-        <a href="../pags/citas.html">Citas</a>
-        <a href="../index.php">Iniciar sesión</a>
-        <a href="../pags/ayuda.html">Ayuda</a>
-
-    </div>
-    <!-- En el form del usuario hay que cambiar los valores para poder mostrar el de cada usuario -->
-    <div class="main">
+    <header>
+        <nav class="navegacion">
+            <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
+            <a href="../pags/contacto.html">Contacto</a>
+            <a href="../pags/inicioSesion.html">Registrarse</a>
+            <a href="../pags/miPerfil.html">Mi Perfil</a>
+        </nav>
+    </header>
+    <main class="main">
+        <!-- contenido de perfil -->
         <h1>Mi perfil</h1>
         <p>Aquí puedes cambiar datos de tu perfil, como nombre, biografía y otros aspectos publicos.</p>
 
@@ -28,7 +27,7 @@
 
         <div class="fotoContenedor">
             <div class="foto_Pefil">
-                <img src="../assets/IMG/Persona.png" alt="Foto de perfil" height="50px" class="foto">
+                <img src="../assets/IMG/cr7.webp" alt="Foto de perfil" height="50px" class="foto">
             </div>
 
             <div class="form-g">
@@ -57,15 +56,19 @@
 
             </div>
         </div>
-
-
-        <footer class="footer">
-            <p class="footer__texto"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-c-circle" viewBox="0 0 16 16">
-                    <path
-                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512" />
-                </svg> Todos los derechos Reservados 2025.</p>
-        </footer>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Citas Prácticas de Manejo - Todos los derechos reservados</p>
+            <div class="footer-icons">
+                <a href='https://www.facebook.com/MOPTcostarica/?ref=search#' target='_blank'>Facebook</a>
+                <a href='https://www.instagram.com/mopt_cr/#' target='_blank'>Instagram</a>
+                <a href='https://www.tiktok.com/@el_mopt' target='_blank'>TikTok</a>
+            </div>
+            <p class="footer-texto">Central Telefónica: (506)2523-2000.<br>
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>

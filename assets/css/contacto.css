@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primario: #1e1e2f;
+    --secundario: #ffd700;
+    --fondo: #f3f6fd;
+    --texto: #333;
+    --blanco: #fff;
+    --primario-contacto: #007BFF;
+    --secundario-contacto: #FF6F61;
+    --gris: #555;
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--fondo);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contenedores {
+    background-color: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 2rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: cardFadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.contenedores:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contenedores a {
+    text-decoration: none;
+    color: var(--primario);
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contenedores a:hover {
+    color: var(--secundario);
+}
+
+@keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    flex: 1;
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    margin: 20px auto;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.card {
+    flex: 1 1 250px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    animation: cardFadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.card i {
+    font-size: 40px;
+    color: var(--primario-contacto);
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover i {
+    transform: rotate(8deg) scale(1.2);
+}
+
+.card h3 {
+    margin-bottom: 5px;
+}
+
+.card p {
+    margin-bottom: 15px;
+    color: var(--gris);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primario-contacto);
+    color: var(--blanco);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+    margin-top: 20px;
+}
+
+.map-container h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.footer {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer-icons a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.footer-icons a:hover {
+    color: #ffd700; 
+    text-decoration: underline;
+}
+.footer__texto {
+    font-family: var(--font-family);
+    font-size: 1.2rem;
+    color: var(--blanco);
+}

@@ -1,171 +1,180 @@
-/* ===== citas.css ===== */
-
-/* Importar la fuente Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Variables globales */
 :root {
-  --primario: #222;
-  --primarioOscuro: #f3f6fd;
-  --secundario: #fff201;
-  --secundarioOscuro: rgb(120, 120, 120);
-  --blanco: #f3f6fd;
-  --font-family: 'Roboto', Arial, sans-serif;
+    --primario: #1e1e2f;
+    --secundario: #ffd700;
+    --fondo: #f3f6fd;
+    --blanco: #ffffff;
+    --gris: #666666;
+    --borde: #ddd;
+    --verde: #28a745;
+    --rojo: #dc3545;
+    --font-family: 'Roboto', sans-serif;
 }
 
-/* Contenedor flex para secciones */
-main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 1rem;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.navegacion {
-    background-color: var(--primarioOscuro);
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    font-size: 2rem;
-    gap: 2.5rem;
-    margin: auto; 
-    box-shadow: #222 0px 0px 3px;
-    border-radius: 14px;
-    font-family: var(--font-family);
-}
-.navegacion__enlace {
+body {
+    background-color: var(--fondo);
     font-family: var(--font-family);
     color: var(--primario);
-    font-size: 3rem;
-}
-.navegacion__enlace--activo,
-.navegacion__enlace:hover {
-    color: var(--primario); 
+    line-height: 1.6;
+    padding-bottom: 3rem;
 }
 
-#user-schedule,
-#posicion-fila,
-#admin-cupos,
-#admin-citas {
-  flex: 0 0 calc(50% - 1.5rem);
-  background-color: var(--blanco);
-  box-shadow: #222 0px 0px 3px;
-  border-radius: 14px;
-  padding: 1.2rem;
-  font-family: var(--font-family);
-  box-sizing: border-box;
+
+.navegacion {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  #user-schedule,
-  #posicion-fila,
-  #admin-cupos,
-  #admin-citas {
-    flex: 0 0 100%;
-  }
+.navegacion a {
+    text-decoration: none;
+    color: var(--primario);
+    font-weight: 700;
+    transition: color 0.3s;
+    white-space: nowrap;
 }
 
-#user-schedule h2,
-#posicion-fila h2,
-#admin-cupos h2,
-#admin-citas h2 {
-  font-size: 2.2rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--primario);
+.navegacion a:hover,
+.navegacion__enlace--activo {
+    color: var(--secundario);
+}
+
+main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primario);
+    border-left: 5px solid var(--secundario);
+    padding-left: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  color: var(--primario);
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--gris);
 }
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-family: var(--font-family);
-  box-sizing: border-box;
+
+input, select {
+    padding: 0.75rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
 }
 
 button {
-  display: inline-block;
-  background-color: var(--secundario);
-  color: var(--primario);
-  font-size: 1rem;
-  padding: 0.8rem 1.2rem;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-family: var(--font-family);
+    padding: 0.75rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primario);
+    color: var(--blanco);
+    cursor: pointer;
+    transition: background 0.3s;
 }
+
 button:hover {
-  background-color: var(--secundarioOscuro);
-  color: var(--blanco);
+    background-color: var(--secundario);
+    color: var(--primario);
 }
 
-#admin-citas table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  font-family: var(--font-family);
-}
-#admin-citas th,
-#admin-citas td {
-  padding: 0.8rem;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-  font-size: 0.95rem;
-}
-#admin-citas thead {
-  background-color: var(--primarioOscuro);
-}
-#admin-citas thead th {
-  color: var(--primario);
-  font-weight: 700;
-}
-#admin-citas tbody tr:nth-child(even) {
-  background-color: #fafafa;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.btn-confirmar,
-.btn-rechazar {
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  font-family: var(--font-family);
+th, td {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--borde);
+    font-size: 0.95rem;
 }
+
+th {
+    background-color: var(--fondo);
+    color: var(--primario);
+    font-weight: 700;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
+}
+
 .btn-confirmar {
-  background-color: #28a745;
-  color: #fff;
-}
-.btn-rechazar {
-  background-color: #dc3545;
-  color: #fff;
-}
-.btn-confirmar:hover {
-  background-color: #218838;
-}
-.btn-rechazar:hover {
-  background-color: #c82333;
+    background-color: var(--verde);
+    color: var(--blanco);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-#resultado-posicion {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--primarioOscuro);
-  min-height: 2em;
-  font-family: var(--font-family);
+.btn-rechazar {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-confirmar:hover {
+    background-color: #218838;
+}
+
+.btn-rechazar:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .navegacion {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
 }
