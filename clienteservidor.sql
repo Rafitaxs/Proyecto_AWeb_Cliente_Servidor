@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2025 at 05:29 PM
+-- Generation Time: Aug 06, 2025 at 05:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -86,18 +86,6 @@ CREATE TABLE `vehiculo` (
   `CC` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `vehiculousuario`
---
-
-CREATE TABLE `vehiculousuario` (
-  `ID_Vehiculo` int(11) NOT NULL,
-  `Cedula` int(11) NOT NULL,
-  `Placa` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -136,14 +124,6 @@ ALTER TABLE `vehiculo`
   ADD PRIMARY KEY (`Placa`);
 
 --
--- Indexes for table `vehiculousuario`
---
-ALTER TABLE `vehiculousuario`
-  ADD PRIMARY KEY (`ID_Vehiculo`),
-  ADD KEY `Cedula` (`Cedula`),
-  ADD KEY `Placa` (`Placa`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -164,12 +144,6 @@ ALTER TABLE `pago`
 --
 ALTER TABLE `sede`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vehiculousuario`
---
-ALTER TABLE `vehiculousuario`
-  MODIFY `ID_Vehiculo` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
