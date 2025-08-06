@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+#if (!isset($_SESSION['usuario'])) {
+ #   header("Location: ../pags/inicioSesion.php");
+  #  exit();
+#}
+#$usuario = $_SESSION['usuario'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,19 +20,11 @@
 
 <body>
     <header>
-        <nav class="navegacion">
-            <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
-            <a href="../pags/contacto.html">Contacto</a>
-            <a href="../pags/inicioSesion.html">Registrarse</a>
-            <a href="../pags/miPerfil.html">Mi Perfil</a>
-        </nav>
+        <?php include '../componentes/header.html'; ?>
     </header>
     <main class="main">
-        <!-- contenido de perfil -->
         <h1>Mi perfil</h1>
-        <p>Aquí puedes cambiar datos de tu perfil, como nombre, biografía y otros aspectos publicos.</p>
-
-        <!-- Hay texto de demostracion -->
+        <p>Aquí puedes cambiar datos de tu perfil, como nombre, biografía y otros aspectos públicos.</p>
 
         <div class="fotoContenedor">
             <div class="foto_Pefil">
@@ -32,31 +33,31 @@
 
             <div class="form-g">
                 <label for="nombre">Nombre: </label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" value="Rafael" required>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                    value="<?php echo htmlspecialchars($usuario['Nombre']); ?>" required>
             </div>
-            <!--Input de nombre usuario-->
 
             <div class="form-g">
                 <label for="apellido"> Apellido</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" value="Solano" required>
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido"
+                    value="<?php echo htmlspecialchars($usuario['Apellido1']); ?>" required>
             </div>
-            <!--Input de apellido usuario-->
 
             <div class="form-g">
                 <label for="display-Nombre">Nombre de usuario:</label>
                 <input type="text" id="display-Nombre" name="display-Nombre" placeholder="Nombre de usuario"
-                    value="RafaSola05" required>
+                    value="<?php echo htmlspecialchars($usuario['Correo']); ?>" required>
             </div>
-            <!--Input de usuario a mostrar-->
+
             <div class="form-g">
                 <label for="biografia">Biografía:</label>
                 <textarea id="biografia" name="biografia" placeholder="Escribe algo sobre ti..." rows="4"
-                    cols="50">Estudiante de ingeniería en de Desarrollo de Software</textarea>
+                    cols="50">Estudiante de ingeniería en Desarrollo de Software</textarea>
                 <button class="btn-guarda">Guardar cambios</button>
-
             </div>
         </div>
     </main>
+
     <footer class="footer">
         <div class="footer-content">
             <p>© 2025 Citas Prácticas de Manejo - Todos los derechos reservados</p>

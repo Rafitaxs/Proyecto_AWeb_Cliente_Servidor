@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['usuario'])) {
+    header("Location: router.php?ruta=login");
+    exit();
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,25 +22,19 @@
 
 <body>
     <header>
-        <nav class="navegacion">
-            <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
-            <a href="../pags/contacto.html">Contacto</a>
-            <a href="../pags/inicioSesion.html">Registrarse</a>
-            <a href="../pags/miPerfil.html">Mi Perfil</a>
-        </nav>
+        <?php include '../componentes/header.html'; ?>
     </header>
 
     <div class="wrapper">
         <div class="form-wrapper sign-in">
-            <form action="sesion.php" method="post">
+            <form action="/Proyecto_AWeb_Cliente_Servidor/router.php?ruta=login" method="POST">
                 <h2>Iniciar Sesión</h2>
                 <div class="input-group">
-                    <input type="text" id="usuario" name="usuario" required>
-                    <label for="usuario">Usuario</label>
+                    <input type="email" id="correoUsuario" name="correo" placeholder="email@ejemplo.com" required>
+
                 </div>
                 <div class="input-group">
-                    <input type="password" id="contrasena" name="contrasena" required>
-                    <label for="contrasena">Contraseña</label>
+                    <input type="number" id="cedula" name="cedula" placeholder="Cédula" required>
                 </div>
                 <div class="remember">
                     <label><input type="checkbox" name="recordar"> Recuérdame</label>
@@ -43,24 +47,43 @@
         </div>
 
         <div class="form-wrapper sign-up">
-            <form action="registro.php" method="post">
+            <form action="/Proyecto_AWeb_Cliente_Servidor/router.php?ruta=register" method="POST">
                 <h2>Regístrate</h2>
+
                 <div class="input-group">
-                    <input type="text" id="nuevoUsuario" name="nuevoUsuario" required>
-                    <label for="nuevoUsuario">Usuario</label>
+                    <input type="number" id="cedula" name="cedula" required>
+                    <label for="cedula">Cédula</label>
                 </div>
+
                 <div class="input-group">
-                    <input type="email" id="nuevoCorreo" name="nuevoCorreo" required>
-                    <label for="nuevoCorreo">Correo Electrónico</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="nombre">Nombre</label>
                 </div>
+
                 <div class="input-group">
-                    <input type="password" id="nuevaContrasena" name="nuevaContrasena" required>
-                    <label for="nuevaContrasena">Contraseña</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                    <label for="apellido">Primer Apellido</label>
                 </div>
+
+                <div class="input-group">
+                    <input type="email" id="correo" name="correo" required>
+                    <label for="correo">Correo Electrónico</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="provincia" name="provincia" required>
+                    <label for="provincia">Provincia</label>
+                </div>
+                <label>Selecciona tu rol:</label><br>
+                <input type="radio" name="rol" value="usuario" checked> Usuario
+                <input type="radio" name="rol" value="admin"> Admin
+
                 <div class="remember">
                     <label><input type="checkbox" required> Acepto los términos y condiciones</label>
                 </div>
+
                 <button type="submit">Registrarse</button>
+
                 <div class="signUp-link">
                     <p>¿Ya tienes una cuenta? <a href="#" class="signInBtn-link">Iniciar Sesión</a></p>
                 </div>
