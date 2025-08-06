@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2025 at 05:31 PM
+-- Generation Time: Aug 06, 2025 at 08:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,8 +71,16 @@ CREATE TABLE `usuario` (
   `Nombre` varchar(30) NOT NULL,
   `Apellido1` varchar(30) NOT NULL,
   `Correo` varchar(30) NOT NULL,
-  `Provincia` varchar(10) NOT NULL
+  `Provincia` varchar(10) NOT NULL,
+  `rol` varchar(20) NOT NULL DEFAULT 'usuario'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`Cedula`, `Nombre`, `Apellido1`, `Correo`, `Provincia`, `rol`) VALUES
+(12345678, 'Rafael', 'Solano', '1234@gmail.com', '1234', 'admin');
 
 -- --------------------------------------------------------
 
