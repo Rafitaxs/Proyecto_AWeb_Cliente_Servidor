@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2025 at 01:34 AM
+-- Generation Time: Aug 06, 2025 at 05:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,6 @@ CREATE TABLE `inscripcion` (
 
 CREATE TABLE `pago` (
   `ID` int(11) NOT NULL,
-  `BIC` varchar(11) NOT NULL,
   `Monto` int(11) NOT NULL,
   `Fecha_Pago` date NOT NULL,
   `Cedula` int(11) NOT NULL
@@ -58,8 +57,7 @@ CREATE TABLE `sede` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Provincia` varchar(15) NOT NULL,
-  `Canton` varchar(25) NOT NULL,
-  `Distrito` varchar(25) NOT NULL
+  `Canton` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -72,13 +70,8 @@ CREATE TABLE `usuario` (
   `Cedula` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Apellido1` varchar(30) NOT NULL,
-  `Apellido2` varchar(30) NOT NULL,
   `Correo` varchar(30) NOT NULL,
-  `Telefono` int(11) NOT NULL,
-  `Provincia` varchar(10) NOT NULL,
-  `Canton` varchar(19) NOT NULL,
-  `Distrito` varchar(25) NOT NULL,
-  `DireccionExacta` varchar(100) NOT NULL
+  `Provincia` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -89,7 +82,7 @@ CREATE TABLE `usuario` (
 
 CREATE TABLE `vehiculo` (
   `Placa` varchar(6) NOT NULL,
-  `PMA` int(11) NOT NULL,
+  `Tipo` varchar(20) NOT NULL,
   `CC` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
