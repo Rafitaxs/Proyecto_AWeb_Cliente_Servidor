@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2025 at 01:34 AM
+-- Generation Time: Aug 06, 2025 at 08:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,6 @@ CREATE TABLE `inscripcion` (
 
 CREATE TABLE `pago` (
   `ID` int(11) NOT NULL,
-  `BIC` varchar(11) NOT NULL,
   `Monto` int(11) NOT NULL,
   `Fecha_Pago` date NOT NULL,
   `Cedula` int(11) NOT NULL
@@ -58,8 +57,7 @@ CREATE TABLE `sede` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Provincia` varchar(15) NOT NULL,
-  `Canton` varchar(25) NOT NULL,
-  `Distrito` varchar(25) NOT NULL
+  `Canton` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -72,14 +70,17 @@ CREATE TABLE `usuario` (
   `Cedula` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Apellido1` varchar(30) NOT NULL,
-  `Apellido2` varchar(30) NOT NULL,
   `Correo` varchar(30) NOT NULL,
-  `Telefono` int(11) NOT NULL,
   `Provincia` varchar(10) NOT NULL,
-  `Canton` varchar(19) NOT NULL,
-  `Distrito` varchar(25) NOT NULL,
-  `DireccionExacta` varchar(100) NOT NULL
+  `rol` varchar(20) NOT NULL DEFAULT 'usuario'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`Cedula`, `Nombre`, `Apellido1`, `Correo`, `Provincia`, `rol`) VALUES
+(12345678, 'Rafael', 'Solano', '1234@gmail.com', '1234', 'admin');
 
 -- --------------------------------------------------------
 
@@ -89,20 +90,8 @@ CREATE TABLE `usuario` (
 
 CREATE TABLE `vehiculo` (
   `Placa` varchar(6) NOT NULL,
-  `PMA` int(11) NOT NULL,
+  `Tipo` varchar(20) NOT NULL,
   `CC` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vehiculousuario`
---
-
-CREATE TABLE `vehiculousuario` (
-  `ID_Vehiculo` int(11) NOT NULL,
-  `Cedula` int(11) NOT NULL,
-  `Placa` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -143,14 +132,6 @@ ALTER TABLE `vehiculo`
   ADD PRIMARY KEY (`Placa`);
 
 --
--- Indexes for table `vehiculousuario`
---
-ALTER TABLE `vehiculousuario`
-  ADD PRIMARY KEY (`ID_Vehiculo`),
-  ADD KEY `Cedula` (`Cedula`),
-  ADD KEY `Placa` (`Placa`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -171,12 +152,6 @@ ALTER TABLE `pago`
 --
 ALTER TABLE `sede`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vehiculousuario`
---
-ALTER TABLE `vehiculousuario`
-  MODIFY `ID_Vehiculo` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
