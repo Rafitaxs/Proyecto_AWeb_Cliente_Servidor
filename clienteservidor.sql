@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2025 at 08:37 PM
+-- Generation Time: Aug 07, 2025 at 10:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,22 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `inscripcion` (
   `ID_Inscripcion` int(11) NOT NULL,
-  `NumeroFila` int(11) NOT NULL,
-  `ID` int(11) NOT NULL,
-  `Cedula` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pago`
---
-
-CREATE TABLE `pago` (
-  `ID` int(11) NOT NULL,
-  `Monto` int(11) NOT NULL,
-  `Fecha_Pago` date NOT NULL,
-  `Cedula` int(11) NOT NULL
+  `Cedula` int(11) NOT NULL,
+  `Nombre` varchar(60) NOT NULL,
+  `Apellido` varchar(60) NOT NULL,
+  `TipoLicencia` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,9 +43,7 @@ CREATE TABLE `pago` (
 
 CREATE TABLE `sede` (
   `ID` int(11) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Provincia` varchar(15) NOT NULL,
-  `Canton` varchar(25) NOT NULL
+  `Provincia` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -82,18 +68,6 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`Cedula`, `Nombre`, `Apellido1`, `Correo`, `Provincia`, `rol`) VALUES
 (12345678, 'Rafael', 'Solano', '1234@gmail.com', '1234', 'admin');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `vehiculo`
---
-
-CREATE TABLE `vehiculo` (
-  `Placa` varchar(6) NOT NULL,
-  `Tipo` varchar(20) NOT NULL,
-  `CC` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -103,14 +77,6 @@ CREATE TABLE `vehiculo` (
 --
 ALTER TABLE `inscripcion`
   ADD PRIMARY KEY (`ID_Inscripcion`),
-  ADD KEY `Id` (`ID`),
-  ADD KEY `Cedula` (`Cedula`);
-
---
--- Indexes for table `pago`
---
-ALTER TABLE `pago`
-  ADD PRIMARY KEY (`ID`),
   ADD KEY `Cedula` (`Cedula`);
 
 --
@@ -126,12 +92,6 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`Cedula`);
 
 --
--- Indexes for table `vehiculo`
---
-ALTER TABLE `vehiculo`
-  ADD PRIMARY KEY (`Placa`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -140,12 +100,6 @@ ALTER TABLE `vehiculo`
 --
 ALTER TABLE `inscripcion`
   MODIFY `ID_Inscripcion` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pago`
---
-ALTER TABLE `pago`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sede`
