@@ -123,7 +123,7 @@ INSERT INTO `sede`(`ID`, `Provincia`)
 VALUES ('4', 'Cartago');
 
 INSERT INTO `sede`(`ID`, `Provincia`) 
-VALUES ('5', 'Ganacaste');
+VALUES ('5', 'Guanacaste');
 
 INSERT INTO `sede`(`ID`, `Provincia`) 
 VALUES ('6', 'Puntarenas');
@@ -135,19 +135,19 @@ VALUES ('7', 'Limon');
 
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
-VALUES ('INS001', '101010101', 'María', 'Gómez', 'B1');
+VALUES ('1', '101010101', 'María', 'Gómez', 'B1');
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
-VALUES ('INS002', '202020202', 'Carlos', 'Ramírez', 'C2');
+VALUES ('2', '202020202', 'Carlos', 'Ramírez', 'C2');
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
-VALUES ('INS003', '303030303', 'Ana', 'López', 'A1');
+VALUES ('3', '303030303', 'Ana', 'López', 'A1');
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
-VALUES ('INS004', '404040404', 'Luis', 'Fernández', 'B2');
+VALUES ('4', '404040404', 'Luis', 'Fernández', 'B2');
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
-VALUES ('INS005', '505050505', 'Sofía', 'Martínez', 'C3');
+VALUES ('5', '505050505', 'Sofía', 'Martínez', 'C3');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
