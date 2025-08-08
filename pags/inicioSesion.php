@@ -30,11 +30,12 @@ if (isset($_SESSION['usuario'])) {
             <form action="/Proyecto_AWeb_Cliente_Servidor/router.php?ruta=login" method="POST">
                 <h2>Iniciar Sesión</h2>
                 <div class="input-group">
-                    <input type="email" id="correoUsuario" name="correo" placeholder="email@ejemplo.com" required>
-
+                    <input type="email" id="correoUsuario" name="correo" required>
+                    <label for="correoUsuario">Correo Electrónico</label>
                 </div>
                 <div class="input-group">
-                    <input type="number" id="cedula" name="cedula" placeholder="Cédula" required>
+                    <input type="number" id="cedula" name="cedula" required>
+                    <label for="cedula">Cédula</label>
                 </div>
                 <div class="remember">
                     <label><input type="checkbox" name="recordar"> Recuérdame</label>
@@ -48,7 +49,9 @@ if (isset($_SESSION['usuario'])) {
 
         <div class="form-wrapper sign-up">
             <form action="/Proyecto_AWeb_Cliente_Servidor/router.php?ruta=register" method="POST">
-                <h2>Regístrate</h2>
+            <br>
+            <br>
+            <h2>Regístrate</h2>
 
                 <div class="input-group">
                     <input type="number" id="cedula" name="cedula" required>
@@ -74,9 +77,10 @@ if (isset($_SESSION['usuario'])) {
                     <input type="text" id="provincia" name="provincia" required>
                     <label for="provincia">Provincia</label>
                 </div>
-                <label>Selecciona tu rol:</label><br>
+                
+                <!-- <label>Selecciona tu rol:</label><br>
                 <input type="radio" name="rol" value="usuario" checked> Usuario
-                <input type="radio" name="rol" value="admin"> Admin
+                <input type="radio" name="rol" value="admin"> Admin -->
 
                 <div class="remember">
                     <label><input type="checkbox" required> Acepto los términos y condiciones</label>

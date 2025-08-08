@@ -107,6 +107,44 @@ ALTER TABLE `inscripcion`
 ALTER TABLE `sede`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+--
+--Insertions for dumped tables
+--
+INSERT INTO `sede`(`ID`, `Provincia`) 
+VALUES ('2', 'Alajuela');
+
+INSERT INTO `sede`(`ID`, `Provincia`) 
+VALUES ('3', 'Heredia');
+
+INSERT INTO `sede`(`ID`, `Provincia`) 
+VALUES ('4', 'Cartago');
+
+INSERT INTO `sede`(`ID`, `Provincia`) 
+VALUES ('5', 'Ganacaste');
+
+INSERT INTO `sede`(`ID`, `Provincia`) 
+VALUES ('6', 'Puntarenas');
+
+INSERT INTO `sede`(`ID`, `Provincia`) 
+VALUES ('7', 'Limon');
+
+
+
+INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+VALUES ('INS001', '101010101', 'María', 'Gómez', 'B1');
+
+INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+VALUES ('INS002', '202020202', 'Carlos', 'Ramírez', 'C2');
+
+INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+VALUES ('INS003', '303030303', 'Ana', 'López', 'A1');
+
+INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+VALUES ('INS004', '404040404', 'Luis', 'Fernández', 'B2');
+
+INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+VALUES ('INS005', '505050505', 'Sofía', 'Martínez', 'C3');
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
