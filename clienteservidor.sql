@@ -110,6 +110,9 @@ COMMIT;
 --
 --Insertions for dumped tables
 --
+INSERT INTO `usuario`(`Cedula`, `Nombre`, `Apellido1`, `Correo`, `Provincia`, `rol`) 
+VALUES ('90116043', 'Chris', 'Murillo', 'chris@gmail.com', 'San José', 'Cliente');
+
 INSERT INTO `sede`(`ID`, `Provincia`) 
 VALUES ('2', 'Alajuela');
 
@@ -130,19 +133,20 @@ VALUES ('7', 'Limon');
 
 
 
-INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+
+INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
 VALUES ('INS001', '101010101', 'María', 'Gómez', 'B1');
 
-INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
 VALUES ('INS002', '202020202', 'Carlos', 'Ramírez', 'C2');
 
-INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
 VALUES ('INS003', '303030303', 'Ana', 'López', 'A1');
 
-INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
 VALUES ('INS004', '404040404', 'Luis', 'Fernández', 'B2');
 
-INSERT INTO `inscripciones` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
+INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`) 
 VALUES ('INS005', '505050505', 'Sofía', 'Martínez', 'C3');
 
 
