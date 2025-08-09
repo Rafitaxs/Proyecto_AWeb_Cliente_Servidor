@@ -150,6 +150,32 @@ INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `Ti
 VALUES ('5', '505050505', 'Sofía', 'Martínez', 'C3');
 
 
+CREATE TABLE cupos_sede (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sede VARCHAR(50) NOT NULL UNIQUE,
+  max_cupos INT NOT NULL,
+  cupos_disponibles INT NOT NULL
+);
+
+INSERT INTO cupos_sede (sede, max_cupos, cupos_disponibles) VALUES
+('sede-1', 10, 10),
+('sede-2', 8, 8),
+('sede-3', 12, 12)
+('sede-4', 12, 12),
+('sede-5', 12, 3);
+
+
+CREATE TABLE citas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    sede VARCHAR(50) NOT NULL,
+    fecha_inscripcion DATE NOT NULL,
+    estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente'
+);
+
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

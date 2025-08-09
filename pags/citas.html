@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Citas</title>
-    <link rel="stylesheet" href="../assets/css/citas.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Citas</title>
+  <link rel="stylesheet" href="../assets/css/citas.css">
+  <link rel="stylesheet" href="../assets/css/header.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navegacion">
-            <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
-            <a href="../pags/contacto.html">Contacto</a>
-            <a href="../pags/inicioSesion.php">Registrarse</a>
-            <a href="../pags/miPerfil.php">Perfil</a>
-            <a href="../pags/inscripciones.php">Inscripciones</a>
-        </nav>
-    </header>
+  <header>
+    <nav class="navegacion">
+      <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
+      <a href="../pags/contacto.html">Contacto</a>
+      <a href="../pags/inicioSesion.php">Registrarse</a>
+      <a href="../pags/miPerfil.php">Perfil</a>
+      <a href="../pags/inscripciones.php">Inscripciones</a>
+    </nav>
+  </header>
 
   <main>
     <section id="user-schedule">
-        <h2>Agendar Cita</h2>
-        <form id="form-agendar" action="">
-            <div class="form-group">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-            <label for="sede">Sede</label>
-            <select id="sede" name="sede" required>
-                <option value="">-- Selecciona una sede --</option>
-                <option value="sede-1">Sede 1</option>
-                <option value="sede-2">Sede 2</option>
-                <option value="sede-3">Sede 3</option>
-            </select>
-            </div>
-            <div class="form-group">
-            <label for="fecha">Fecha de inscripción</label>
-            <input type="date" id="fecha" name="fecha_inscripcion" required>
-            </div>
-            <button type="submit">Enviar inscripción</button>
-        </form>
+      <h2>Agendar Cita</h2>
+      <form id="form-agendar" action="">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="sede">Sede</label>
+          <select id="sede" name="sede" required>
+            <option value="">-- Selecciona una sede --</option>
+            <option value="sede-1">Sede 1</option>
+            <option value="sede-2">Sede 2</option>
+            <option value="sede-3">Sede 3</option>
+            <option value="sede-4">Sede 4</option>
+            <option value="sede-5">Sede 5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fecha">Fecha de inscripción</label>
+          <input type="date" id="fecha" name="fecha_inscripcion" required>
+        </div>
+        <button type="submit">Enviar inscripción</button>
+      </form>
     </section>
 
     <section id="posicion-fila">
@@ -72,11 +75,17 @@
             <option value="sede-1">Sede 1</option>
             <option value="sede-2">Sede 2</option>
             <option value="sede-3">Sede 3</option>
+            <option value="sede-4">Sede 4</option>
+            <option value="sede-5">Sede 5</option>
           </select>
         </div>
         <div class="form-group">
           <label for="max-cupos">Número máximo de cupos</label>
           <input type="number" id="max-cupos" name="max_cupos" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="cupos-disponibles">Cupos Disponibles</label>
+          <input type="number" id="cupos-disponibles" name="cupos_disponibles" min="0" required>
         </div>
         <button type="submit">Actualizar cupos</button>
       </form>
@@ -85,4 +94,5 @@
 
   <script src="../assets/js/citas.js"></script>
 </body>
+
 </html>

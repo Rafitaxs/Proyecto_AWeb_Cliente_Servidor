@@ -3,11 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const formCupos = document.getElementById('form-cupos');
   const citasTbody = document.querySelector('#admin-citas tbody');
 
-  // Cargar datos
   let citas = JSON.parse(localStorage.getItem('citas')) || [];
   let caps = JSON.parse(localStorage.getItem('caps')) || {};
 
-  // Tabla de citas
   function renderCitas() {
     citasTbody.innerHTML = '';
     citas.forEach(cita => {
@@ -28,64 +26,142 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Guarda cambios
   function saveData() {
     localStorage.setItem('citas', JSON.stringify(citas));
     localStorage.setItem('caps', JSON.stringify(caps));
   }
 
-  // Formulario de agendar cita
+  function validarEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  function validarFecha(fechaStr) {
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+    const fecha = new Date(fechaStr);
+    return fecha >= hoy;
+  }
+
   formAgendar.addEventListener('submit', event => {
     event.preventDefault();
+
     const nombre = formAgendar.nombre.value.trim();
     const email = formAgendar.email.value.trim();
     const sede = formAgendar.sede.value;
-    const fecha = formAgendar.fecha.value; // formato YYYY-MM-DD
+    const fecha = formAgendar.fecha.value;
 
-    // Cita duplicada en mismo día
-    const existeMismaFecha = citas.some(cita => cita.email === email && cita.fecha_inscripcion === fecha);
-    if (existeMismaFecha) {
-      alert('Ya tienes una cita agendada para esa fecha.');
+    if (!nombre) {
+      alert('El nombre es obligatorio.');
       return;
     }
 
-    // Validar cupos por sede y fecha
-    const maxCupos = caps[sede] || Infinity;
-    const citasEnFechaYSede = citas.filter(cita => cita.sede === sede && cita.fecha_inscripcion === fecha).length;
-    if (citasEnFechaYSede >= maxCupos) {
-      alert('No hay cupos disponibles para esa sede en la fecha seleccionada.');
+    if (!email) {
+      alert('El correo electrónico es obligatorio.');
       return;
     }
 
-    // Generar nuevo ID
-    const nuevoId = citas.length > 0 ? Math.max(...citas.map(c => c.id)) + 1 : 1;
-    const nuevaCita = {
-      id: nuevoId,
-      nombre,
-      email,
-      sede,
-      fecha_inscripcion: fecha,
-      estado: 'Pendiente'
-    };
+    if (!validarEmail(email)) {
+      alert('El correo electrónico no tiene un formato válido.');
+      return;
+    }
 
-    citas.push(nuevaCita);
-    saveData();
-    renderCitas();
-    formAgendar.reset();
+    if (!sede) {
+      alert('Por favor selecciona una sede.');
+      return;
+    }
+
+    if (!fecha) {
+      alert('Por favor selecciona una fecha.');
+      return;
+    }
+
+    if (!validarFecha(fecha)) {
+      alert('La fecha no puede ser anterior a hoy.');
+      return;
+    }
+
+    const data = new URLSearchParams();
+    data.append('nombre', nombre);
+    data.append('email', email);
+    data.append('sede', sede);
+    data.append('fecha_inscripcion', fecha);
+
+    fetch('agendar_cita.php', {
+      method: 'POST',
+      body: data,
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        if (data.status === 'success') {
+          formAgendar.reset();
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error al agendar la cita');
+      });
   });
 
-  // Formulario de gestión de cupos
+
   formCupos.addEventListener('submit', event => {
     event.preventDefault();
     const sede = formCupos['sede'].value;
-    const maxCupos = parseInt(formCupos['max_cupos'].value, 10);
-    if (sede && maxCupos > 0) {
-      caps[sede] = maxCupos;
-      saveData();
-      alert(`Cupos actualizados: ${maxCupos} para ${sede}`);
-      formCupos.reset();
+    const max_cupos = formCupos['max_cupos'].value.trim();
+    const cupos_disponibles = formCupos['cupos_disponibles'].value.trim();
+
+    if (!sede) {
+      alert('Por favor selecciona una sede.');
+      return;
     }
+
+    if (!max_cupos) {
+      alert('Por favor ingresa el número máximo de cupos.');
+      return;
+    }
+
+    if (!cupos_disponibles) {
+      alert('Por favor ingresa el número de cupos disponibles.');
+      return;
+    }
+
+    const maxCuposNum = Number(max_cupos);
+    const cuposDisponiblesNum = Number(cupos_disponibles);
+
+    if (isNaN(maxCuposNum) || maxCuposNum <= 0 || !Number.isInteger(maxCuposNum)) {
+      alert('El número máximo de cupos debe ser un entero positivo.');
+      return;
+    }
+
+    if (isNaN(cuposDisponiblesNum) || cuposDisponiblesNum < 0 || !Number.isInteger(cuposDisponiblesNum)) {
+      alert('Los cupos disponibles deben ser un entero no negativo.');
+      return;
+    }
+
+    if (cuposDisponiblesNum > maxCuposNum) {
+      alert('Los cupos disponibles no pueden ser mayores que el máximo de cupos.');
+      return;
+    }
+
+    fetch('actualizar_cupos.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `sede=${encodeURIComponent(sede)}&max_cupos=${encodeURIComponent(maxCuposNum)}&cupos_disponibles=${encodeURIComponent(cuposDisponiblesNum)}`
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        if (data.status === 'success') {
+          formCupos.reset();
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al actualizar los cupos');
+      });
   });
+
 
   // Inicializar tabla
   renderCitas();
