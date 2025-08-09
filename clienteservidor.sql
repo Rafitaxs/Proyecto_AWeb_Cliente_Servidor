@@ -174,6 +174,8 @@ CREATE TABLE citas (
     estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente'
 );
 
+ALTER TABLE citas 
+MODIFY COLUMN estado ENUM('pendiente','confirmado','rechazado') NOT NULL DEFAULT 'pendiente';
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -19,6 +19,7 @@ $result = $conn->query($sql);
     <title>Inscripción a Práctica de Manejo</title>
     <link rel="stylesheet" href="../assets/css/inscripciones.css">
     <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
 </head>
 
 <body>
@@ -72,8 +73,19 @@ $result = $conn->query($sql);
             </table>
         </section>
     </div>
-    <script src="../assets/js/inscripciones.js"></script>
+    <footer class="footer footer-fixed-bottom">
+        <div class="footer-content">
+            <p>© 2025 Citas Prácticas de Manejo - Todos los derechos reservados</p>
+            <div class="footer-icons">
+                <a href='https://www.facebook.com/MOPTcostarica/?ref=search#' target='_blank'>Facebook</a>
+                <a href='https://www.instagram.com/mopt_cr/#' target='_blank'>Instagram</a>
+                <a href='https://www.tiktok.com/@el_mopt' target='_blank'>TikTok</a>
+            </div>
+            <p class="footer-texto">Central Telefónica: (506)2523-2000.<br></p>
+        </div>
+    </footer>
 
+    <script src="../assets/js/inscripciones.js"></script>
 </body>
 
 </html>
