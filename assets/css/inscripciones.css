@@ -164,20 +164,21 @@ td {
     .contenedor {
         margin: 0 1rem;
     }
-    
+
     #admin-citas {
         padding: 1.5rem;
     }
-    
+
     h2 {
         font-size: 1.75rem;
     }
-    
+
     table {
         font-size: 0.9rem;
     }
-    
-    th, td {
+
+    th,
+    td {
         padding: 0.75rem 0.5rem;
     }
 }
@@ -186,32 +187,33 @@ td {
     body {
         padding: 1rem 0.5rem;
     }
-    
+
     .contenedor {
         border-radius: 8px;
     }
-    
+
     #admin-citas {
         padding: 1rem;
     }
-    
+
     h2 {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     table {
         font-size: 0.8rem;
     }
-    
-    th, td {
+
+    th,
+    td {
         padding: 0.6rem 0.4rem;
     }
-    
+
     th {
         font-size: 0.75rem;
     }
-    
+
     .btn-confirmar,
     .btn-rechazar {
         padding: 0.4rem 0.7rem;
@@ -225,11 +227,11 @@ td {
     table {
         border: 0;
     }
-    
+
     table thead {
         display: none;
     }
-    
+
     table tr {
         border-bottom: 3px solid var(--borde);
         display: block;
@@ -239,7 +241,7 @@ td {
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     table td {
         border-bottom: 1px solid var(--borde);
         display: block;
@@ -247,14 +249,14 @@ td {
         text-align: right;
         padding: 0.5rem 0;
     }
-    
+
     table td:before {
         content: attr(data-label) ": ";
         float: left;
         font-weight: bold;
         color: var(--gris);
     }
-    
+
     table td:last-child {
         border-bottom: 0;
         text-align: left;
@@ -267,6 +269,7 @@ td {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -281,4 +284,122 @@ table tbody tr {
 .btn-rechazar:focus {
     outline: 3px solid rgba(0, 123, 255, 0.25);
     outline-offset: 2px;
+}
+
+.btn-agregar,
+.btn-modificar,
+.btn-eliminar {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--blanco);
+}
+
+.btn-agregar {
+    background-color: var(--verde);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.btn-agregar:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+}
+
+.btn-modificar {
+    background-color: #ffc107;
+    color: var(--primario);
+}
+
+.btn-modificar:hover {
+    background-color: #e0a800;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+}
+
+.btn-eliminar {
+    background-color: var(--rojo);
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+}
+
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-family);
+    color: var(--primario);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--primario);
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus {
+    border-color: var(--secundario);
+    outline: none;
+    box-shadow: 0 0 6px var(--secundario);
+}
+
+form button {
+    background-color: var(--verde);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.25rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+form a {
+    display: inline-block;
+    margin-left: 1rem;
+    color: var(--rojo);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+form a:hover {
+    color: #a71d2a;
 }
