@@ -403,3 +403,14 @@ form a {
 form a:hover {
     color: #a71d2a;
 }
+select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--primario);
+    background-color: var(--blanco);
+    transition: border-color 0.3s ease;
+}

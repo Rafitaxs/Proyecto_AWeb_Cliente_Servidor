@@ -4,12 +4,18 @@ session_start();
 
 $conn = Database::connect();
 
-$sql = "SELECT ID_Inscripcion, Nombre, Apellido, Cedula, TipoLicencia
+$sql = "SELECT ID_Inscripcion, Nombre, Apellido, Cedula, TipoLicencia, SedeID
         FROM inscripcion
         ORDER BY ID_Inscripcion ASC";
 $result = $conn->query($sql);
-?>
 
+$sql = "SELECT i.ID_Inscripcion, i.Nombre, i.Apellido, i.Cedula, i.TipoLicencia,
+               s.Provincia AS Sede
+        FROM inscripcion i
+        INNER JOIN sede s ON i.SedeID = s.ID
+        ORDER BY i.ID_Inscripcion ASC";
+$result = $conn->query($sql);
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -47,6 +53,7 @@ $result = $conn->query($sql);
                         <th>Apellido</th>
                         <th>Cédula</th>
                         <th>Tipo Licencia</th>
+                        <th>Sede</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -59,6 +66,7 @@ $result = $conn->query($sql);
                                 <td data-label="Apellido"><?= $fila['Apellido'] ?></td>
                                 <td data-label="Cédula"><?= $fila['Cedula'] ?></td>
                                 <td data-label="Tipo Licencia"><?= $fila['TipoLicencia'] ?></td>
+                                 <td data-label="Sede"><?= $fila['Sede'] ?></td>
                                 <td data-label="Acciones">
                                     <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-modificar">Modificar</button>
 

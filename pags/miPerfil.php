@@ -24,7 +24,7 @@ $usuario = $_SESSION['usuario'];
     </header>
     <main class="main">
         <h1>Mi perfil</h1>
-        <p>Aquí puedes cambiar datos de tu perfil, como nombre, biografía y otros aspectos públicos.</p>
+        <p>Aquí puedes observar todos tus datos, como nombre y otros aspectos públicos.</p>
 
         <div class="fotoContenedor">
             <div class="foto_Pefil">
@@ -34,27 +34,22 @@ $usuario = $_SESSION['usuario'];
             <div class="form-g">
                 <label for="nombre">Nombre: </label>
                 <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"
-                    value="<?php echo htmlspecialchars($usuario['Nombre']); ?>" required>
+                    value="<?php echo htmlspecialchars($usuario['Nombre']); ?>" readonly>
             </div>
 
             <div class="form-g">
                 <label for="apellido"> Apellido</label>
                 <input type="text" id="apellido" name="apellido" placeholder="Tu apellido"
-                    value="<?php echo htmlspecialchars($usuario['Apellido1']); ?>" required>
+                    value="<?php echo htmlspecialchars($usuario['Apellido1']); ?>" readonly>
             </div>
 
             <div class="form-g">
-                <label for="display-Nombre">Nombre de usuario:</label>
+                <label for="display-Nombre">Correo:</label>
                 <input type="text" id="display-Nombre" name="display-Nombre" placeholder="Nombre de usuario"
-                    value="<?php echo htmlspecialchars($usuario['Correo']); ?>" required>
+                    value="<?php echo htmlspecialchars($usuario['Correo']); ?>" readonly>
             </div>
 
-            <div class="form-g">
-                <label for="biografia">Biografía:</label>
-                <textarea id="biografia" name="biografia" placeholder="Escribe algo sobre ti..." rows="4"
-                    cols="50"></textarea>
-                <button class="btn-guarda">Guardar cambios</button>
-            </div>
+            <a class="btn-guarda" href="inscripciones.php">Citas</a>
         </div>
     </main>
 
