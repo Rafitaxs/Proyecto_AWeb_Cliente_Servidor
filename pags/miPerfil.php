@@ -2,8 +2,8 @@
 session_start();
 require_once '../app/config/db.php';
 if (!isset($_SESSION['usuario'])) {
-   header("Location: ../pags/inicioSesion.php");
-   exit();
+    header("Location: ../pags/inicioSesion.php");
+    exit();
 }
 $usuario = $_SESSION['usuario'];
 ?>
@@ -44,9 +44,15 @@ $usuario = $_SESSION['usuario'];
             </div>
 
             <div class="form-g">
-                <label for="display-Nombre">Correo:</label>
+                <label for="display-Correo">Correo:</label>
                 <input type="text" id="display-Nombre" name="display-Nombre" placeholder="Nombre de usuario"
                     value="<?php echo htmlspecialchars($usuario['Correo']); ?>" readonly>
+            </div>
+
+            <div class="form-g">
+                <label for="display-Rol">Rol:</label>
+                <input type="text" id="display-Nombre" name="display-Nombre" placeholder="Nombre de usuario"
+                    value="<?php echo htmlspecialchars($usuario['rol']); ?>" readonly>
             </div>
 
             <a class="btn-guarda" href="inscripciones.php">Citas</a>
