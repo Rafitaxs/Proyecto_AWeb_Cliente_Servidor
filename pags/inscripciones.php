@@ -1,5 +1,6 @@
 <?php
 include '../app/config/db.php';
+session_start();
 
 $conn = Database::connect();
 
@@ -50,23 +51,26 @@ $result = $conn->query($sql);
                 </thead>
                 <tbody>
                     <?php if ($result->num_rows > 0): ?>
-                    <?php while($fila = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td data-label="ID"><?= $fila['ID_Inscripcion'] ?></td>
-                        <td data-label="Nombre"><?= $fila['Nombre'] ?></td>
-                        <td data-label="Apellido"><?= $fila['Apellido'] ?></td>
-                        <td data-label="Cédula"><?= $fila['Cedula'] ?></td>
-                        <td data-label="Tipo Licencia"><?= $fila['TipoLicencia'] ?></td>
-                        <td data-label="Acciones">
-                            <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-modificar">Modificar</button>
-                            <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-eliminar">Eliminar</button>
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
+                        <?php while ($fila = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td data-label="ID"><?= $fila['ID_Inscripcion'] ?></td>
+                                <td data-label="Nombre"><?= $fila['Nombre'] ?></td>
+                                <td data-label="Apellido"><?= $fila['Apellido'] ?></td>
+                                <td data-label="Cédula"><?= $fila['Cedula'] ?></td>
+                                <td data-label="Tipo Licencia"><?= $fila['TipoLicencia'] ?></td>
+                                <td data-label="Acciones">
+                                    <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-modificar">Modificar</button>
+
+                                    <?php if ($_SESSION['rol'] === 'admin'): ?>
+                                        <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-eliminar">Eliminar</button>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
                     <?php else: ?>
-                    <tr>
-                        <td colspan="6">No hay inscripciones registradas</td>
-                    </tr>
+                        <tr>
+                            <td colspan="6">No hay inscripciones registradas</td>
+                        </tr>
                     <?php endif; ?>
                 </tbody>
             </table>

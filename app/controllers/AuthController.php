@@ -27,7 +27,7 @@ class AuthController
         $apellido = $_POST['apellido'];
         $correo = $_POST['correo'];
         $provincia = $_POST['provincia'];
-        $rol = $_POST['rol'] ?? 'usuario';
+        $rol = $_POST['rol'] ?? 'user';
 
         if ($user->register($cedula, $nombre, $apellido, $correo, $provincia, $rol)) {
             echo "<script>alert('Registro exitoso'); window.location.href='index.php';</script>";

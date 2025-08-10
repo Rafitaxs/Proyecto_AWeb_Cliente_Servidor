@@ -1,11 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['usuario'])) {
-    header("Location: router.php?ruta=login");
-    exit();
-}
-
-
 
 ?>
 <!DOCTYPE html>
@@ -78,9 +72,9 @@ if (isset($_SESSION['usuario'])) {
                     <label for="provincia">Provincia</label>
                 </div>
                 
-                <!-- <label>Selecciona tu rol:</label><br>
-                <input type="radio" name="rol" value="usuario" checked> Usuario
-                <input type="radio" name="rol" value="admin"> Admin -->
+                <label>Selecciona tu rol:</label><br>
+                <input type="radio" name="rol" value="usuario"> Usuario
+                <input type="radio" name="rol" value="admin"> Admin
 
                 <div class="remember">
                     <label><input type="checkbox" required> Acepto los términos y condiciones</label>

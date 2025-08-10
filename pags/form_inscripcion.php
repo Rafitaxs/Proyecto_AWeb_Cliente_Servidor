@@ -1,5 +1,6 @@
 <?php
 require '../app/config/db.php';
+session_start();
 $conn = Database::connect();
 
 $id = $_GET['id'] ?? null;

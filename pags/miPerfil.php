@@ -1,11 +1,11 @@
 <?php
 session_start();
-
-#if (!isset($_SESSION['usuario'])) {
- #   header("Location: ../pags/inicioSesion.php");
-  #  exit();
-#}
-#$usuario = $_SESSION['usuario'];
+require_once '../app/config/db.php';
+if (!isset($_SESSION['usuario'])) {
+   header("Location: ../pags/inicioSesion.php");
+   exit();
+}
+$usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +52,7 @@ session_start();
             <div class="form-g">
                 <label for="biografia">Biografía:</label>
                 <textarea id="biografia" name="biografia" placeholder="Escribe algo sobre ti..." rows="4"
-                    cols="50">Estudiante de ingeniería en Desarrollo de Software</textarea>
+                    cols="50"></textarea>
                 <button class="btn-guarda">Guardar cambios</button>
             </div>
         </div>

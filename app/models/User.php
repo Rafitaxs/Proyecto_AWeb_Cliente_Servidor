@@ -17,6 +17,7 @@ class User {
         if($result){
             session_start();
             $_SESSION['usuario'] = $result;
+            $_SESSION['rol'] = $result['rol'];
             return true;
         } else {
             return false;
