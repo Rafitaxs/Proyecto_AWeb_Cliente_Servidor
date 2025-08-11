@@ -1,3 +1,24 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; 
+}
+
+.footer {
+  background-color: #1e1e2f;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
 
 .footer-fixed-bottom {
     position: absolute;
@@ -14,12 +35,6 @@
     margin-top: 3rem;
     font-size: 0.9rem;
 }
-
-/* @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-} */
 
 .footer-content {
     max-width: 1200px;

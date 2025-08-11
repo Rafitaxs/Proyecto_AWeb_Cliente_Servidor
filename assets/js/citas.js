@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let caps = JSON.parse(localStorage.getItem('caps')) || {};
 
   function renderCitas() {
+    if (!citasTbody) return;
     citasTbody.innerHTML = '';
     citas.forEach(cita => {
       const tr = document.createElement('tr');
@@ -26,6 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const cerrarConfirmacion = document.getElementById('cerrar-confirmacion');
+  if (cerrarConfirmacion) {
+    cerrarConfirmacion.addEventListener('click', () => {
+      console.log('Botón cerrar clickeado');
+      document.getElementById('confirmacion-cita').style.display = 'none';
+    });
+  }
+  
   function saveData() {
     localStorage.setItem('citas', JSON.stringify(citas));
     localStorage.setItem('caps', JSON.stringify(caps));
@@ -93,9 +102,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
       .then(response => response.json())
       .then(data => {
-        alert(data.message);
         if (data.status === 'success') {
+          const confirmacionDiv = document.getElementById('confirmacion-cita');
+          const infoCitaDiv = document.getElementById('info-cita');
+
+          infoCitaDiv.innerHTML = `
+            <ul>
+              <li><strong>Nombre:</strong> ${nombre}</li>
+              <li><strong>Correo:</strong> ${email}</li>
+              <li><strong>Sede:</strong> ${sede}</li>
+              <li><strong>Fecha de inscripción:</strong> ${fecha}</li>
+            </ul>
+          `;
+          confirmacionDiv.style.display = 'block';
+
           formAgendar.reset();
+        } else {
+          alert(data.message);
         }
       })
       .catch(error => {
@@ -103,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Error al agendar la cita');
       });
   });
-
 
   formCupos.addEventListener('submit', event => {
     event.preventDefault();
@@ -162,7 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
+  const btnCerrar = document.getElementById('cerrar-confirmacion');
+  if (btnCerrar) {
+    btnCerrar.addEventListener('click', () => {
+      document.getElementById('confirmacion-cita').style.display = 'none';
+    });
+  }
 
-  // Inicializar tabla
   renderCitas();
 });
