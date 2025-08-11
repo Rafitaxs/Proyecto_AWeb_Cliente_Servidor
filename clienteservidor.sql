@@ -135,19 +135,19 @@ VALUES ('7', 'Limon');
 
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`, `SedeID`) 
-VALUES ('1', '101010101', 'María', 'Gómez', 'B1', `1`);
+VALUES ('1', '101010101', 'María', 'Gómez', 'B1', `);
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`, `SedeID`) 
-VALUES ('2', '202020202', 'Carlos', 'Ramírez', 'C2', `2`);
+VALUES ('2', '202020202', 'Carlos', 'Ramírez', 'C2', 2);
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`, `SedeID`) 
-VALUES ('3', '303030303', 'Ana', 'López', 'A1', `3`);
+VALUES ('3', '303030303', 'Ana', 'López', 'A1', 3);
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`, `SedeID`) 
-VALUES ('4', '404040404', 'Luis', 'Fernández', 'B2',`4`);
+VALUES ('4', '404040404', 'Luis', 'Fernández', 'B2', 4);
 
 INSERT INTO `inscripcion` (`ID_Inscripcion`, `Cedula`, `Nombre`, `Apellido`, `TipoLicencia`, `SedeID`) 
-VALUES ('5', '505050505', 'Sofía', 'Martínez', 'C3',`5`);
+VALUES ('5', '505050505', 'Sofía', 'Martínez', 'C3', 5);
 
 
 CREATE TABLE cupos_sede (
