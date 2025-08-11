@@ -27,14 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const cerrarConfirmacion = document.getElementById('cerrar-confirmacion');
-  if (cerrarConfirmacion) {
-    cerrarConfirmacion.addEventListener('click', () => {
-      console.log('Botón cerrar clickeado');
-      document.getElementById('confirmacion-cita').style.display = 'none';
-    });
-  }
-  
   function saveData() {
     localStorage.setItem('citas', JSON.stringify(citas));
     localStorage.setItem('caps', JSON.stringify(caps));

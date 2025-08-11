@@ -62,6 +62,14 @@ if (!isset($_SESSION['rol'])) {
                     <label for="fecha">Fecha de inscripción</label>
                     <input type="date" id="fecha" name="fecha_inscripcion" required>
                 </div>
+                <div id="confirmacion-cita" class="confirmacion-cita"
+                    style="display:none; border: 1px solid #4caf50; padding: 1rem; margin-top: 1rem; background-color: #e8f5e9; color: #2e7d32;">
+                    <h3>¡Cita agendada correctamente!</h3>
+                    <p>Se envió la información de la cita a su correo electrónico.</p>
+                    <div id="info-cita"></div>
+                    <button id="cerrar-confirmacion">Cerrar</button>
+                </div>
+
                 <button type="submit">Agendar Cita</button>
             </form>
         </section>
@@ -72,7 +80,7 @@ if (!isset($_SESSION['rol'])) {
                 <div class="form-group"></div>
                 <input type="number" id="id-cita-consulta" name="id_cita" placeholder="Ejemplo: 123" min="1" required>
                 <button type="submit">Consultar posición</button>
-                
+
             </form>
             <div id="resultado-posicion"></div>
         </section>
@@ -122,21 +130,7 @@ if (!isset($_SESSION['rol'])) {
         </div>
     </footer>
     <script src="../assets/js/citas.js"></script>
+    <script src="../assets/js/consultaPosicion.js"></script>
 </body>
-<script>
-document.getElementById('form-posicion').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const idCita = document.getElementById('id-cita-consulta').value;
-    fetch('../app/controllers/CitaController.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'id_cita=' + encodeURIComponent(idCita)
-    })
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('resultado-posicion').innerText = data;
-    });
-});
-</script>
 
 </html>
