@@ -22,17 +22,7 @@ if (!isset($_SESSION['rol'])) {
 
 <body>
     <header>
-        <nav class="navegacion">
-            <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
-            <a href="../pags/contacto.html">Contacto</a>
-            <a href="../pags/inicioSesion.php">Registrarse</a>
-            <a href="../pags/miPerfil.php">Perfil</a>
-            <a href="../pags/inscripciones.php">Inscripciones</a>
-            <a href="../pags/pago.html">Pago</a>
-            <a href="../pags/logout.php" class="btn-logout" title="Cerrar sesión">
-                <i class="fas fa-sign-out-alt"></i>
-            </a>
-        </nav>
+        <?php include '../componentes/header.html'; ?>
     </header>
 
     <main>
@@ -86,31 +76,31 @@ if (!isset($_SESSION['rol'])) {
         </section>
 
         <?php if ($isAdmin): ?>
-        <section id="admin-cupos">
-            <h2>Gestión de Cupos por Sede</h2>
-            <form id="form-cupos" action="actualizar_cupos.php" method="POST">
-                <div class="form-group">
-                    <label for="sede-cupo">Sede</label>
-                    <select id="sede-cupo" name="sede" required>
-                        <option value="">-- Selecciona una sede --</option>
-                        <option value="sede-1">Sede 1</option>
-                        <option value="sede-2">Sede 2</option>
-                        <option value="sede-3">Sede 3</option>
-                        <option value="sede-4">Sede 4</option>
-                        <option value="sede-5">Sede 5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="max-cupos">Número máximo de cupos</label>
-                    <input type="number" id="max-cupos" name="max_cupos" min="1" required>
-                </div>
-                <div class="form-group">
-                    <label for="cupos-disponibles">Cupos Disponibles</label>
-                    <input type="number" id="cupos-disponibles" name="cupos_disponibles" min="0" required>
-                </div>
-                <button type="submit">Actualizar cupos</button>
-            </form>
-        </section>
+            <section id="admin-cupos">
+                <h2>Gestión de Cupos por Sede</h2>
+                <form id="form-cupos" action="actualizar_cupos.php" method="POST">
+                    <div class="form-group">
+                        <label for="sede-cupo">Sede</label>
+                        <select id="sede-cupo" name="sede" required>
+                            <option value="">-- Selecciona una sede --</option>
+                            <option value="sede-1">Sede 1</option>
+                            <option value="sede-2">Sede 2</option>
+                            <option value="sede-3">Sede 3</option>
+                            <option value="sede-4">Sede 4</option>
+                            <option value="sede-5">Sede 5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="max-cupos">Número máximo de cupos</label>
+                        <input type="number" id="max-cupos" name="max_cupos" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cupos-disponibles">Cupos Disponibles</label>
+                        <input type="number" id="cupos-disponibles" name="cupos_disponibles" min="0" required>
+                    </div>
+                    <button type="submit">Actualizar cupos</button>
+                </form>
+            </section>
         <?php endif; ?>
 
         <div style="text-align:center; margin-top: 2rem;">

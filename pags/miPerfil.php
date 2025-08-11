@@ -61,7 +61,7 @@ $usuario = $_SESSION['usuario'];
             </div>
 
             <div class="botones-perfil">
-                <a class="btn-guarda" href="inscripciones.php">Citas</a>
+                <a class="btn-editar" href="inscripciones.php">Citas</a>
                 <a href="editarPerfil.php" class="btn-editar">Editar Perfil</a>
             </div>
         </div>

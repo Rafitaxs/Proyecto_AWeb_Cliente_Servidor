@@ -1,30 +1,16 @@
 html, body {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
 }
 
 body {
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
-  flex: 1; 
-}
-
-.footer {
-  background-color: #1e1e2f;
-  color: #ffffff;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-.footer-fixed-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    flex: 1; /* Ocupa todo el espacio disponible */
 }
 
 .footer {
@@ -32,8 +18,8 @@ main {
     color: #ffffff;
     text-align: center;
     padding: 1rem;
-    margin-top: 3rem;
     font-size: 0.9rem;
+    margin-top: auto; /* Empuja el footer al fondo */
 }
 
 .footer-content {
@@ -62,6 +48,7 @@ main {
     color: #ffd700;
     text-decoration: underline;
 }
+
 .footer__texto {
     font-family: var(--font-family);
     font-size: 1.2rem;

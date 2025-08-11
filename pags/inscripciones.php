@@ -37,17 +37,7 @@ if (!isset($_SESSION['rol'])) {
 
 <body>
     <header>
-        <nav class="navegacion">
-            <a class="navegacion__enlace--activo" href="inicio.html">Inicio</a>
-            <a href="../pags/contacto.html">Contacto</a>
-            <a href="../pags/inicioSesion.php">Registrarse</a>
-            <a href="../pags/miPerfil.php">Perfil</a>
-            <a href="../pags/inscripciones.php">Inscripciones</a>
-            <a href="../pags/pago.html">Pago</a>
-            <a href="../pags/logout.php" class="btn-logout" title="Cerrar sesión">
-                <i class="fas fa-sign-out-alt"></i>
-            </a>
-        </nav>
+        <?php include '../componentes/header.html'; ?>
     </header>
 
     <div class="contenedor">
@@ -70,28 +60,28 @@ if (!isset($_SESSION['rol'])) {
                 </thead>
                 <tbody>
                     <?php if ($result->num_rows > 0): ?>
-                    <?php while ($fila = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td data-label="ID"><?= htmlspecialchars($fila['ID_Inscripcion']) ?></td>
-                        <td data-label="Nombre"><?= htmlspecialchars($fila['Nombre']) ?></td>
-                        <td data-label="Apellido"><?= htmlspecialchars($fila['Apellido']) ?></td>
-                        <td data-label="Cédula"><?= htmlspecialchars($fila['Cedula']) ?></td>
-                        <td data-label="Tipo Licencia"><?= htmlspecialchars($fila['TipoLicencia']) ?></td>
-                        <td data-label="Sede"><?= htmlspecialchars($fila['Sede']) ?></td>
-                        <td data-label="Acciones">
-                            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
-                            <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-modificar">Modificar</button>
-                            <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-eliminar">Eliminar</button>
-                            <?php else: ?>
-                            <em>Sin permisos</em>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
+                        <?php while ($fila = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td data-label="ID"><?= htmlspecialchars($fila['ID_Inscripcion']) ?></td>
+                                <td data-label="Nombre"><?= htmlspecialchars($fila['Nombre']) ?></td>
+                                <td data-label="Apellido"><?= htmlspecialchars($fila['Apellido']) ?></td>
+                                <td data-label="Cédula"><?= htmlspecialchars($fila['Cedula']) ?></td>
+                                <td data-label="Tipo Licencia"><?= htmlspecialchars($fila['TipoLicencia']) ?></td>
+                                <td data-label="Sede"><?= htmlspecialchars($fila['Sede']) ?></td>
+                                <td data-label="Acciones">
+                                    <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+                                        <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-modificar">Modificar</button>
+                                        <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-eliminar">Eliminar</button>
+                                    <?php else: ?>
+                                        <em>Sin permisos</em>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
                     <?php else: ?>
-                    <tr>
-                        <td colspan="7">No hay inscripciones registradas</td>
-                    </tr>
+                        <tr>
+                            <td colspan="7">No hay inscripciones registradas</td>
+                        </tr>
                     <?php endif; ?>
                 </tbody>
             </table>
