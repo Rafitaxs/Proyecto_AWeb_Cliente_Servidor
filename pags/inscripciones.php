@@ -54,9 +54,7 @@ if (!isset($_SESSION['rol'])) {
         <section id="admin-citas">
             <h2>Registro de Inscripciones</h2>
 
-            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
             <button class="btn-agregar">Agregar</button>
-            <?php endif; ?>
 
             <table>
                 <thead>
