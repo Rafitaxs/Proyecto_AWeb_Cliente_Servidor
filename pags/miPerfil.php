@@ -15,7 +15,7 @@ $usuario = $_SESSION['usuario'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil</title>
     <link rel="stylesheet" href="../assets/css/miPerfil.css">
-    <link rel="stylesheet" href="../assets/CSS/header.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
 </head>
 
 <body>
@@ -33,29 +33,36 @@ $usuario = $_SESSION['usuario'];
 
             <div class="form-g">
                 <label for="nombre">Nombre: </label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"
-                    value="<?php echo htmlspecialchars($usuario['Nombre']); ?>" readonly>
+                <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars($usuario['Nombre']); ?>"
+                    readonly>
             </div>
 
             <div class="form-g">
                 <label for="apellido"> Apellido</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido"
+                <input type="text" id="apellido" name="apellido"
                     value="<?php echo htmlspecialchars($usuario['Apellido1']); ?>" readonly>
             </div>
 
             <div class="form-g">
                 <label for="display-Correo">Correo:</label>
-                <input type="text" id="display-Nombre" name="display-Nombre" placeholder="Nombre de usuario"
+                <input type="text" id="display-Correo" name="correo"
                     value="<?php echo htmlspecialchars($usuario['Correo']); ?>" readonly>
             </div>
+            <div class="form-g">
+                <label for="display-Provincia">Provincia:</label>
+                <input type="text" id="display-Provincia" name="provincia"
+                    value="<?php echo htmlspecialchars($usuario['Provincia']); ?>" readonly>
 
             <div class="form-g">
                 <label for="display-Rol">Rol:</label>
-                <input type="text" id="display-Nombre" name="display-Nombre" placeholder="Nombre de usuario"
-                    value="<?php echo htmlspecialchars($usuario['rol']); ?>" readonly>
+                <input type="text" id="display-Rol" name="rol" value="<?php echo htmlspecialchars($usuario['rol']); ?>"
+                    readonly>
             </div>
 
-            <a class="btn-guarda" href="inscripciones.php">Citas</a>
+            <div class="botones-perfil">
+                <a class="btn-guarda" href="inscripciones.php">Citas</a>
+                <a href="editarPerfil.php" class="btn-editar">Editar Perfil</a>
+            </div>
         </div>
     </main>
 
@@ -67,8 +74,7 @@ $usuario = $_SESSION['usuario'];
                 <a href='https://www.instagram.com/mopt_cr/#' target='_blank'>Instagram</a>
                 <a href='https://www.tiktok.com/@el_mopt' target='_blank'>TikTok</a>
             </div>
-            <p class="footer-texto">Central Telefónica: (506)2523-2000.<br>
-            </p>
+            <p class="footer-texto">Central Telefónica: (506)2523-2000.<br></p>
         </div>
     </footer>
 </body>

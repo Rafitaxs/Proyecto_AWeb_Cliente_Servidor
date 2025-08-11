@@ -5,7 +5,7 @@ class Database
     {
         $host = 'localhost';
         $usuario = 'root';
-        $contrasena = '';
+        $contrasena = 'Chris##2003##';
         $base_datos = 'clienteservidor';
 
         $conn = new mysqli($host, $usuario, $contrasena, $base_datos);

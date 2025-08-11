@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pago Exitoso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .mensaje {
+            background: #d4edda;
+            color: #155724;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .mensaje a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #155724;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="mensaje">
+        <h1>¡Pago registrado con éxito!</h1>
+        <p>Gracias por tu pago.</p>
+        <a href="../pags/inicio.html">Volver al inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+:root {
+    --primario: #1e1e2f;
+    --secundario: #ffd700;
+    --fondo: #f3f6fd;
+    --blanco: #ffffff;
+    --borde: #ddd;
+    --verde: #28a745;
+    --rojo: #dc3545;
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--fondo);
+    font-family: var(--font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.pago-container {
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.pago-container h2 {
+    color: var(--primario);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-left: 5px solid var(--secundario);
+    padding-left: 0.5rem;
+}
+
+.pago-form label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    display: block;
+    color: var(--primario);
+}
+
+.pago-form input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.pago-form input:focus {
+    outline: none;
+    border-color: var(--secundario);
+    box-shadow: 0 0 6px var(--secundario);
+}
+
+.btn-pagar {
+    background-color: var(--verde);
+    color: var(--blanco);
+    border: none;
+    padding: 0.7rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-pagar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}

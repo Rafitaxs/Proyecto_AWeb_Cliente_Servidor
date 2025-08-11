@@ -189,6 +189,34 @@ body {
     color: var(--blanco);
 }
 
+.btn-editar {
+    background-color: #007BFF;
+    color: var(--blanco);
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-editar:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-editar:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
 
 
 @keyframes fadeInUp {
@@ -216,3 +244,5 @@ body {
         margin-top: 1rem;
     }
 }
+
+

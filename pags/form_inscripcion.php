@@ -3,20 +3,17 @@ require '../app/config/db.php';
 session_start();
 $conn = Database::connect();
 
-// Cargar sedes para el <select>
 $sedes = [];
 $respuesta = $conn->query("SELECT ID, Provincia FROM sede ORDER BY Provincia");
 while ($fila = $respuesta->fetch_assoc()) {
     $sedes[] = $fila;
 }
 
-// Inicializar variables
 $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
 $nombre = $apellido = $tipoLicencia = "";
 $cedula = 0;
-$sedeID = null; // MUY IMPORTANTE para evitar "Undefined variable"
+$sedeID = null;
 
-// Si es edición, precargar datos
 if ($id) {
     $stmt = $conn->prepare("SELECT ID_Inscripcion, Nombre, Apellido, Cedula, TipoLicencia, SedeID FROM inscripcion WHERE ID_Inscripcion = ?");
     $stmt->bind_param("i", $id);
@@ -32,21 +29,17 @@ if ($id) {
     }
 }
 
-// Guardar (crear/actualizar)
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Entradas
     $nombre = trim($_POST['nombre'] ?? '');
     $apellido = trim($_POST['apellido'] ?? '');
     $cedula = (int) ($_POST['cedula'] ?? 0);
     $tipoLicencia = strtoupper(trim($_POST['tipoLicencia'] ?? ''));
     $sedeID = isset($_POST['sede_id']) && $_POST['sede_id'] !== '' ? (int) $_POST['sede_id'] : null;
 
-    // Validaciones mínimas
     if ($nombre === '' || $apellido === '' || !$cedula || $tipoLicencia === '' || $sedeID === null) {
         die('Faltan datos del formulario (incluida la sede).');
     }
 
-    // Validar FK: que la sede exista
     $v = $conn->prepare("SELECT 1 FROM sede WHERE ID=?");
     $v->bind_param("i", $sedeID);
     $v->execute();
@@ -55,19 +48,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if ($id) {
-        // UPDATE con SedeID
         $stmt = $conn->prepare("
             UPDATE inscripcion
                SET Nombre=?, Apellido=?, Cedula=?, TipoLicencia=?, SedeID=?
              WHERE ID_Inscripcion=?");
-        // ssisii -> Nombre(s), Apellido(s), Cedula(i), TipoLicencia(s), SedeID(i), ID(i)
         $stmt->bind_param("ssisii", $nombre, $apellido, $cedula, $tipoLicencia, $sedeID, $id);
     } else {
-        // INSERT con SedeID
         $stmt = $conn->prepare("
             INSERT INTO inscripcion (Nombre, Apellido, Cedula, TipoLicencia, SedeID)
             VALUES (?, ?, ?, ?, ?)");
-        // ssisi -> Nombre(s), Apellido(s), Cedula(i), TipoLicencia(s), SedeID(i)
         $stmt->bind_param("ssisi", $nombre, $apellido, $cedula, $tipoLicencia, $sedeID);
     }
 

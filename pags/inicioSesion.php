@@ -71,10 +71,10 @@ session_start();
                     <input type="text" id="provincia" name="provincia" required>
                     <label for="provincia">Provincia</label>
                 </div>
-                
+<!--                 
                 <label>Selecciona tu rol:</label><br>
                 <input type="radio" name="rol" value="usuario"> Usuario
-                <input type="radio" name="rol" value="admin"> Admin
+                <input type="radio" name="rol" value="admin"> Admin -->
 
                 <div class="remember">
                     <label><input type="checkbox" required> Acepto los términos y condiciones</label>
