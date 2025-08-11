@@ -15,7 +15,6 @@ class CitaModel {
         return $result ?: null;
     }
 
-    // Calcula la posición en la fila por fecha de inscripción y sede
     public function getPosicionEnFila($id) {
         $cita = $this->getCitaById($id);
         if (!$cita) return null;

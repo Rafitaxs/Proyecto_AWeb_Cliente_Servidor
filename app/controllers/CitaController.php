@@ -12,7 +12,7 @@ class CitaController {
         $cita = $this->citaModel->getCitaById($id);
         if ($cita) {
             $posicion = $this->citaModel->getPosicionEnFila($id);
-            return $posicion ? "Tu posición en la fila es: $posicion" : "Posición no disponible";
+            return $posicion ? "Tu cita: ($id) tiene la posición: $posicion" : "Posición no disponible";
         } else {
             return 'Cita no encontrada';
         }
