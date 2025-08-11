@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION['rol'])) {
+    header('Location: ../pags/inicio.html');
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -71,11 +76,6 @@ session_start();
                     <input type="text" id="provincia" name="provincia" required>
                     <label for="provincia">Provincia</label>
                 </div>
-<!--                 
-                <label>Selecciona tu rol:</label><br>
-                <input type="radio" name="rol" value="usuario"> Usuario
-                <input type="radio" name="rol" value="admin"> Admin -->
-
                 <div class="remember">
                     <label><input type="checkbox" required> Acepto los términos y condiciones</label>
                 </div>

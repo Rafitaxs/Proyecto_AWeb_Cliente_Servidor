@@ -187,6 +187,15 @@ CREATE TABLE pago (
     anio INT NOT NULL
 );
 
+ALTER TABLE inscripcion ADD COLUMN SedeID int(11) NOT NULL;\
+UPDATE inscripcion SET SedeID = 2 WHERE ID_Inscripcion = 1;
+
+UPDATE inscripcion SET SedeID = 2 WHERE ID_Inscripcion = 1; -- Alajuela
+UPDATE inscripcion SET SedeID = 3 WHERE ID_Inscripcion = 2; -- Heredia
+UPDATE inscripcion SET SedeID = 4 WHERE ID_Inscripcion = 3; -- Cartago
+UPDATE inscripcion SET SedeID = 5 WHERE ID_Inscripcion = 4; -- Guanacaste
+UPDATE inscripcion SET SedeID = 6 WHERE ID_Inscripcion = 5; -- Puntarenas
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

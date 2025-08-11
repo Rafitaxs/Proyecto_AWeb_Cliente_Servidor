@@ -1,6 +1,11 @@
 <?php
 session_start();
 $isAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
+
+if (!isset($_SESSION['rol'])) {
+    header('Location: ../pags/inicioSesion.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,6 +17,7 @@ $isAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
     <link rel="stylesheet" href="../assets/css/citas.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
@@ -22,6 +28,10 @@ $isAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
             <a href="../pags/inicioSesion.php">Registrarse</a>
             <a href="../pags/miPerfil.php">Perfil</a>
             <a href="../pags/inscripciones.php">Inscripciones</a>
+            <a href="../pags/pago.html">Pago</a>
+            <a href="../pags/logout.php" class="btn-logout" title="Cerrar sesión">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </nav>
     </header>
 
@@ -52,7 +62,7 @@ $isAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
                     <label for="fecha">Fecha de inscripción</label>
                     <input type="date" id="fecha" name="fecha_inscripcion" required>
                 </div>
-                <button type="submit">Enviar inscripción</button>
+                <button type="submit">Agendar Cita</button>
             </form>
         </section>
 
@@ -70,7 +80,6 @@ $isAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
         </section>
 
         <?php if ($isAdmin): ?>
-        <!-- Admin: Gestión de cupos por sede -->
         <section id="admin-cupos">
             <h2>Gestión de Cupos por Sede</h2>
             <form id="form-cupos" action="actualizar_cupos.php" method="POST">
