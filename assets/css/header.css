@@ -29,3 +29,24 @@ header {
 .navegacion__enlace--activo {
     color: #ffd700;
 }
+
+.navegacion {
+    position: relative;
+}
+
+.btn-logout {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-logout:hover {
+    color: #e74c3c;
+}
+

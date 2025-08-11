@@ -4,18 +4,23 @@ session_start();
 
 $conn = Database::connect();
 
-$sql = "SELECT ID_Inscripcion, Nombre, Apellido, Cedula, TipoLicencia, SedeID
-        FROM inscripcion
-        ORDER BY ID_Inscripcion ASC";
-$result = $conn->query($sql);
-
 $sql = "SELECT i.ID_Inscripcion, i.Nombre, i.Apellido, i.Cedula, i.TipoLicencia,
                s.Provincia AS Sede
         FROM inscripcion i
-        INNER JOIN sede s ON i.SedeID = s.ID
+        LEFT JOIN sede s ON i.SedeID = s.ID
         ORDER BY i.ID_Inscripcion ASC";
 $result = $conn->query($sql);
+
+
+if (!$result) {
+    die("Error en la consulta SQL: " . $conn->error);
+}
+if (!isset($_SESSION['rol'])) {
+    header('Location: ../pags/inicioSesion.php');
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -27,6 +32,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="../assets/css/inscripciones.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
@@ -37,13 +43,20 @@ $result = $conn->query($sql);
             <a href="../pags/inicioSesion.php">Registrarse</a>
             <a href="../pags/miPerfil.php">Perfil</a>
             <a href="../pags/inscripciones.php">Inscripciones</a>
+            <a href="../pags/pago.html">Pago</a>
+            <a href="../pags/logout.php" class="btn-logout" title="Cerrar sesión">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </nav>
     </header>
 
     <div class="contenedor">
         <section id="admin-citas">
             <h2>Registro de Inscripciones</h2>
+
+            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
             <button class="btn-agregar">Agregar</button>
+            <?php endif; ?>
 
             <table>
                 <thead>
@@ -59,27 +72,28 @@ $result = $conn->query($sql);
                 </thead>
                 <tbody>
                     <?php if ($result->num_rows > 0): ?>
-                        <?php while ($fila = $result->fetch_assoc()): ?>
-                            <tr>
-                                <td data-label="ID"><?= $fila['ID_Inscripcion'] ?></td>
-                                <td data-label="Nombre"><?= $fila['Nombre'] ?></td>
-                                <td data-label="Apellido"><?= $fila['Apellido'] ?></td>
-                                <td data-label="Cédula"><?= $fila['Cedula'] ?></td>
-                                <td data-label="Tipo Licencia"><?= $fila['TipoLicencia'] ?></td>
-                                 <td data-label="Sede"><?= $fila['Sede'] ?></td>
-                                <td data-label="Acciones">
-                                    <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-modificar">Modificar</button>
-
-                                    <?php if ($_SESSION['rol'] === 'admin'): ?>
-                                        <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-eliminar">Eliminar</button>
-                                    <?php endif; ?>
-                                </td>
-                            </tr>
-                        <?php endwhile; ?>
+                    <?php while ($fila = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td data-label="ID"><?= htmlspecialchars($fila['ID_Inscripcion']) ?></td>
+                        <td data-label="Nombre"><?= htmlspecialchars($fila['Nombre']) ?></td>
+                        <td data-label="Apellido"><?= htmlspecialchars($fila['Apellido']) ?></td>
+                        <td data-label="Cédula"><?= htmlspecialchars($fila['Cedula']) ?></td>
+                        <td data-label="Tipo Licencia"><?= htmlspecialchars($fila['TipoLicencia']) ?></td>
+                        <td data-label="Sede"><?= htmlspecialchars($fila['Sede']) ?></td>
+                        <td data-label="Acciones">
+                            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+                            <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-modificar">Modificar</button>
+                            <button data-id="<?= $fila['ID_Inscripcion'] ?>" class="btn-eliminar">Eliminar</button>
+                            <?php else: ?>
+                            <em>Sin permisos</em>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
                     <?php else: ?>
-                        <tr>
-                            <td colspan="6">No hay inscripciones registradas</td>
-                        </tr>
+                    <tr>
+                        <td colspan="7">No hay inscripciones registradas</td>
+                    </tr>
                     <?php endif; ?>
                 </tbody>
             </table>

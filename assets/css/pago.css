@@ -12,11 +12,20 @@
 body {
     background-color: var(--fondo);
     font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    flex-direction: column;
 }
+
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .pago-container {
     background-color: var(--blanco);
