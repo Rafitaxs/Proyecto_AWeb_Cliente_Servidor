@@ -62,8 +62,11 @@ $isAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
                 <div class="form-group"></div>
                 <input type="number" id="id-cita-consulta" name="id_cita" placeholder="Ejemplo: 123" min="1" required>
                 <button type="submit">Consultar posición</button>
+                
             </form>
-            <div id="resultado-posicion"></div>
+            <div class="resultado">
+                <p id="resultado-posicion"></p>
+            </div>
         </section>
 
         <?php if ($isAdmin): ?>
@@ -113,20 +116,6 @@ $isAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
     </footer>
     <script src="../assets/js/citas.js"></script>
 </body>
-<script>
-document.getElementById('form-posicion').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const idCita = document.getElementById('id-cita-consulta').value;
-    fetch('../app/controllers/CitaController.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'id_cita=' + encodeURIComponent(idCita)
-    })
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('resultado-posicion').innerText = data;
-    });
-});
-</script>
+<script src="../assets/js/consultaPosicion.js"></script>
 
 </html>
