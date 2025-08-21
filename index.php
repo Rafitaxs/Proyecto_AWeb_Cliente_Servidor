@@ -32,12 +32,8 @@
                     <label><input type="checkbox" name="recordar"> Recuérdame</label>
                 </div>
                 <button type="submit">Entrar</button>
-                <div class="signUp-link">
-                    <p>¿No tienes una cuenta? <a href="#" class="signUpBtn-link">Regístrate</a></p>
-                </div>
             </form>
 
-        <div class="divider">o</div>
         <div class="acciones">
             ¿No tienes cuenta? <a href="pags/inicioSesion.php">Regístrate aquí</a>
         </div>
